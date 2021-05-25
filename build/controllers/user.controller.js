@@ -46,7 +46,8 @@ exports.register = (req,res)=>{
 
     }).catch(err =>{
         res.status(500).send({
-            message:err.message || "some error occurred"
+            message:err.message || "some error occurred",
+            "error":"error"
         })
     })
 }
