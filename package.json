@@ -1,7 +1,7 @@
 {
-  "name": "fidelitycard",
+  "name": "CovoiturageBackend",
   "version": "1.0.0",
-  "description": "loyality card",
+  "description": "backend of covoiturage apps",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/app.js",
