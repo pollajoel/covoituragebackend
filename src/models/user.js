@@ -61,7 +61,7 @@ const UserSchema = Schema({
         type:String
     },
 
-    products:[{
+    Trajets:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"products"
     }],

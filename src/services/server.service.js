@@ -2,8 +2,12 @@ const config = require("../configs")
 const PORT = process.env.PORT
 const express = require("express")
 const app = express();
+const swaggerUi = require("swagger-ui-express");
 const bodyParser = require('body-parser')
 const apiRouter = require("../routes")
+const  swaggerDocument = require("../swagger/swaggerDocument.json");
+
+
 //import apiRouter from "../routes"
 var cors = require('cors');
 var path = require('path');
@@ -30,6 +34,7 @@ graphQlServer.applyMiddleware({ app, path: "/graphql" });
 app.use(cors());
 app.use('/uploads', express.static('./uploads'));
 app.use(bodyParser.json());
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument))
 app.use('/api/v1', apiRouter);
 
 
