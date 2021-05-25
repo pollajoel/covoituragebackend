@@ -1,11 +1,7 @@
-"use strict";
+const bd = require("./db.config")
+const server  = require("./server.config")
+const jwt = require("./jwt.config")
 
-var bd = require("./db.config");
-
-var server = require("./server.config");
-
-var jwt = require("./jwt.config");
-
-module.exports.database = bd;
-module.exports.server = server;
-module.exports.jwt = jwt;
+module.exports.database=bd;
+module.exports.server=server;
+module.exports.jwt=jwt;

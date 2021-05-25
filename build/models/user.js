@@ -1,62 +1,75 @@
-"use strict";
+const mongoose = require("mongoose")
 
-var mongoose = require("mongoose");
+const Schema = mongoose.Schema
 
-var Schema = mongoose.Schema;
-var UserSchema = Schema({
-  isAdmin: {
-    type: Boolean
-  },
-  userName: {
-    type: String //required:true,
 
-  },
-  name: {
-    type: String //required:true,
-
-  },
-  firstName: {
-    type: String //required:true,
-
-  },
-  lastName: {
-    type: String //required:true,
-
-  },
-  passWord: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    dropDups: true
-  },
-  adresse: [{
-    city: {
-      type: String
+const UserSchema = Schema({
+	
+	
+	isAdmin:{
+		type:Boolean,
+	},
+    age:{
+	    type:Number,
     },
-    country: {
-      type: String
+    userName:{
+        type:String,
+        //required:true,
     },
-    ZipCode: {
-      type: String
-    }
-  }],
-  phoneNumber: {
-    type: String
-  },
-  civility: {
-    type: String
-  },
-  products: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "products"
-  }],
-  compagny: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "compagny"
-  }]
-});
-module.exports = mongoose.model('User', UserSchema);
+    name:{
+        type:String,
+        //required:true,
+    },
+    firstName:{
+        type:String,
+        //required:true,
+    },
+    lastName:{
+        type:String,
+        //required:true,
+    },
+    passWord:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true,
+        dropDups: true
+    },
+    adresse:[
+        {
+            city:{
+                type:String,
+            },
+            country:{
+                type:String
+            },
+            ZipCode:{
+                type:String
+            },
+            adressei:{
+                type:String
+            }
+        }
+    ],
+    phoneNumber:{
+        type:String
+    },
+    civility:{
+        type:String
+    },
+
+    Trajets:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"products"
+    }],
+    compagny:[{
+	    type:mongoose.Schema.Types.ObjectId,
+        ref:"compagny"
+    }]
+
+},{ timestamps: true })
+
+module.exports = mongoose.model('User',UserSchema)

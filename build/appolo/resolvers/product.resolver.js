@@ -1,19 +1,16 @@
-"use strict";
-
-var Products = require("../../models/products");
-
+const Products = require("../../models/products")
 module.exports = {
-  Query: {
-    products: function products() {
-      // .find()
-      return Products.find({});
-    },
-    product: function product(parent, args) {
-      return Products.findById(args.id);
-    } //mutations // typer dans schema
-    //createProduct
-    // updateProduct
-    // etc...
-
-  }
-};
+    Query: {
+        products: () => {
+            // .find()
+            return Products.find({})
+        },
+        product: (parent, args) => {
+            return Products.findById(args.id)
+        }
+    //mutations // typer dans schema
+        //createProduct
+        // updateProduct
+        // etc...
+    }
+}

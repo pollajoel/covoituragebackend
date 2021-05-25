@@ -1,9 +1,10 @@
-"use strict";
+const express = require("express");
+const router = express.Router();
+const Order = require("../controllers/order.controller")
+const AuthJwt = require("../middleware/secureRoute.middleware")
 
-var express = require("express");
-var router = express.Router();
-var Order = require("../controllers/order.controller");
+router.post("/addOrder",AuthJwt.authenticateJWT,Order.Add)
+router.get("/allOrder",AuthJwt.authenticateJWT,Order.All)
+router.put("/Orderupdate/:id",AuthJwt.authenticateJWT,Order.update)
+module.exports = router
 
-router.post("/addOrder", Order.Add);
-router.get("/allOrder", Order.All);
-module.exports = router;

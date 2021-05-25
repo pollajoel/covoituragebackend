@@ -1,17 +1,14 @@
-"use strict";
+const express = require('express');
+const router = express.Router();
+const userRouter = require("./users.routes")
+const orderRouter = require("./order.routes")
+const productsRouter = require("./product.routes")
+const categories = require("./categories.routes")
+const upload = require("./uploadImages.routes")
 
-var express = require('express');
-var router = express.Router();
-var userRouter = require("./users.routes");
-var orderRouter = require("./order.routes");
-var productsRouter = require("./product.routes");
-var sendinblue = require("./sendinblue.routes");
-
-
-router.use(sendinblue);
-router.use(userRouter);
-router.use(orderRouter);
-router.use(productsRouter);
-
-
-module.exports = router;
+router.use(categories)
+router.use(upload)
+router.use( userRouter )
+router.use( orderRouter)
+router.use( productsRouter)
+module.exports = router

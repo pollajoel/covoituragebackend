@@ -1,37 +1,33 @@
-"use strict";
+const config = require("../configs")
+const jwt = require("jsonwebtoken")
 
-var config = require("../configs");
+exports.authenticateJWT = (req, res, next) => {
 
-var jwt = require("jsonwebtoken");
+    if (req.headers.authorization) {
+        const token =req.headers.authorization;
+        if(!token)
+		{
+			 res.status(401).send({
+				auth:false,
+				message:"missing token, please login"
+			})
+		}
 
-exports.authenticateJWT = function (req, res, next) {
-  var authHeader = req.headers.authorization;
-
-  if (authHeader) {
-    var token = authHeader.split(' ')[1];
-
-    if (!token) {
-      res.status(401).send({
-        auth: false,
-        message: "missing token, please login"
-      });
-    }
-
-    jwt.verify(token, config.jwt.secret, function (err, user) {
-      if (err) {
-        return res.status(403).send({
-          auth: false,
-          message: "no authorized"
+        jwt.verify(token, config.jwt.secret, (err, user) => {
+            if (err) {
+                return res.status(403).send({
+                   auth:false,
+                   message: "no authorized" 
+                });
+            }
+            req.user = user;
+            next();//j'enchaine sur mon contrôlleur
         });
-      }
-
-      req.user = user;
-      next(); //j'enchaine sur mon contrôlleur
-    });
-  } else {
-    res.status(401).send({
-      auth: false,
-      message: "missing token, please login"
-    });
-  }
+		
+    } else {
+        res.status(401).send({
+            auth:false,
+            message:"missing token, please login"
+        })
+    }
 };

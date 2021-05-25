@@ -1,18 +1,17 @@
-"use strict";
+require('dotenv').config()
+const moongose = require("mongoose")
+const config = require("../configs")
+const uri = config.database.url
 
-const moongose = require("mongoose");
-const  config = require("../configs");
-const uri = config.database.url;
-
-module.exports.dbConnect = function () {
-  moongose.connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-  }).then(function () {
-    console.log("Connection Success..");
-  })["catch"](function (error) {
-    console.log(error);
-    process.exit(1);
-  });
-};
+module.exports.dbConnect=()=>{
+    moongose.connect(process.env.DBHOST,{
+        useNewUrlParser:true,
+        useCreateIndex:true,
+        useUnifiedTopology:true,
+    }).then(()=>{
+        console.log("Connection Success..")
+    }).catch((error)=>{
+        console.log(error)
+        process.exit(1)
+    })
+}
