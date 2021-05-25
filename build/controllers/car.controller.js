@@ -1,4 +1,4 @@
-const categories = require("../models/categories")
+const categories = require("../models/car")
 const categorieSchema = require('../middleware/validators/categorie.validation')
 
 
@@ -16,7 +16,6 @@ exports.AddCategories = (req, res)=>{
     {
          return res.status(400).send(validation.error)
     }
-
     cat.save().then(data=>{
         res.status(200).send({data:data})
         }).catch(err=>{
