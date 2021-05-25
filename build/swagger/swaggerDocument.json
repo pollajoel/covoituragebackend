@@ -30,7 +30,12 @@
         "/users": {
             "post":{
                 "tags":["Users"],
-                "description": "Create new user in system"
+                "description": "Create new user in system",
+                "parameters": [{
+                    "name": "user",
+                    "in": "body",
+                    "$ref": "#/definitions/User"
+                }]
             } ,
 
             "get": {

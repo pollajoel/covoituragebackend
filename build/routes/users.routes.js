@@ -5,7 +5,6 @@ const AuthJwt = require("../middleware/secureRoute.middleware")
 
 
 router.post("/Users",users.register)
-//router.post("/login",users.login)
 router.get("/user/:id",AuthJwt.authenticateJWT,users.user)
 router.get("/users",users.users)
 router.post("/userDelete",users.Delete)
