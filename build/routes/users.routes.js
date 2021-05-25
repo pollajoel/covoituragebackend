@@ -1,14 +1,11 @@
 "use strict";
 
-var express = require("express");
+const express = require("express");
+const router = express.Router();
+const users = require("../controllers/user.controller");
+const AuthJwt = require("../middleware/secureRoute.middleware");
 
-var router = express.Router();
-
-var users = require("../controllers/user.controller");
-
-var AuthJwt = require("../middleware/secureRoute.middleware");
-
-router.post("/register", users.register);
+router.post("/Users", users.register);
 router.post("/login", users.login);
 router.get("/logout", AuthJwt.authenticateJWT, users.logout);
 module.exports = router;

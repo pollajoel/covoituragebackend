@@ -1,30 +1,21 @@
 "use strict";
+const config = require("../configs");
+const PORT = process.env.PORT || config.server.Port;
+const express = require("express");
+const app = express();
+const schema = require("../appolo/schema");
 
-var config = require("../configs");
-
-var PORT = process.env.PORT || config.server.Port;
-
-var express = require("express");
-
-var app = express();
-
-var bodyParser = require('body-parser');
-
-var apiRouter = require("../routes"); //import apiRouter from "../routes"
+const  resolvers = require("../appolo/resolvers");
+const bodyParser = require('body-parser');
+const apiRouter = require("../routes"); //import apiRouter from "../routes"
 //var cors = require('cors');
-app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument))
-app.use('/api/v1', apiRouter);
 
 
-var schema = require("../appolo/schema");
-
-var resolvers = require("../appolo/resolvers");
-
-var _require = require('apollo-server-express'),
+const _require = require('apollo-server-express'),
     ApolloServer = _require.ApolloServer,
     gql = _require.gql;
 
-var graphQlServer = new ApolloServer({
+const graphQlServer = new ApolloServer({
   typeDefs: schema,
   resolvers: resolvers
 });

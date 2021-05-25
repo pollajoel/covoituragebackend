@@ -1,10 +1,8 @@
 "use strict";
 
-var moongose = require("mongoose");
-
-var config = require("../configs");
-
-var uri = config.database.url;
+const moongose = require("mongoose");
+const  config = require("../configs");
+const uri = config.database.url;
 
 module.exports.dbConnect = function () {
   moongose.connect(uri, {
