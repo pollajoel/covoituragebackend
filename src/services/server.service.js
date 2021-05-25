@@ -1,6 +1,9 @@
 const config = require("../configs")
 const PORT = process.env.PORT
 const express = require("express")
+const schema = require("../appolo/schema");
+const resolvers = require("../appolo/resolvers");
+const { ApolloServer, gql } = require('apollo-server-express');
 const app = express();
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require('body-parser')
@@ -9,12 +12,9 @@ const  swaggerDocument = require("../swagger/swaggerDocument.json");
 
 
 //import apiRouter from "../routes"
-var cors = require('cors');
-var path = require('path');
+const cors = require('cors');
+const path = require('path');
 
-const schema = require("../appolo/schema");
-const resolvers = require("../appolo/resolvers");
-const { ApolloServer, gql } = require('apollo-server-express');
 
 const graphQlServer = new ApolloServer({
     introspection: true,

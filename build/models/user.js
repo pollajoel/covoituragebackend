@@ -65,10 +65,11 @@ const UserSchema = Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"products"
     }],
-    compagny:[{
+
+    profilImage:{
 	    type:mongoose.Schema.Types.ObjectId,
-        ref:"compagny"
-    }]
+        ref:"images"
+    }
 
 },{ timestamps: true })
 

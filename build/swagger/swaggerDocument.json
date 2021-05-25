@@ -27,7 +27,7 @@
         "application/json"
     ],
     "paths": {
-        "/users": {
+        "/users/": {
             "post":{
                 "tags":["Users"],
                 "description": "Create new user in system",

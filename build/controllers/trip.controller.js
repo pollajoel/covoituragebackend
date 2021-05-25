@@ -1,5 +1,5 @@
-const Product = require("../models/products")
-const jwt   = require("jsonwebtoken")
+const Product = require("../models/trips");
+const jwt   = require("jsonwebtoken");
 const configs =  require("../configs")
 const productSchemaValidation =require("../middleware/validators/product.validation")
 
