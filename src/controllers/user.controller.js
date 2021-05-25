@@ -21,14 +21,14 @@ exports.register = (req,res)=>{
         //isAdmin: req.isAdmin,
     })
 
-    /*
+
     const validation = UservalidationSchema.validate(user)
     if( validation.error)
     {
         return res.status(400).send(validation.error)
     }
 
-     */
+
 
     user.save().then(data=>{
 
