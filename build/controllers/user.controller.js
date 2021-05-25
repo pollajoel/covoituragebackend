@@ -8,6 +8,7 @@ const UservalidationSchema = require('../middleware/validators/user.validation')
 
 exports.register = (req,res)=>{
 
+
     const hashedPassword = bcrypt.hashSync(req.body.passWord, 10);
     const user = new User({
         name:req.body.name,
@@ -18,17 +19,15 @@ exports.register = (req,res)=>{
         phoneNumber:req.body.phoneNumber,
         civility:req.body.civility,
         isAdmin:req.body.isAdmin,
-        //isAdmin: req.isAdmin,
     })
 
-    /*
+
     const validation = UservalidationSchema.validate(user)
     if( validation.error)
     {
         return res.status(400).send(validation.error)
     }
 
-     */
 
     user.save().then(data=>{
 

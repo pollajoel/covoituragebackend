@@ -18,7 +18,7 @@
         }
     ],
     "schemes": [
-        "https"
+        "http"
     ],
     "consumes": [
         "application/json"
@@ -27,7 +27,7 @@
         "application/json"
     ],
     "paths": {
-        "/users/": {
+        "/users": {
             "post":{
                 "tags":["Users"],
                 "description": "Create new user in system",
@@ -46,7 +46,8 @@
                 "tags": ["Users"],
                 "summary": "Get all users in system",
                 "responses": {
-                    "200": {"description": "OK"}
+                    "200": {"description": "OK"},
+                    "400": {"description": "OK"}
                 }
             }
 
