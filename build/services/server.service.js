@@ -12,6 +12,8 @@ var bodyParser = require('body-parser');
 
 var apiRouter = require("../routes"); //import apiRouter from "../routes"
 //var cors = require('cors');
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument))
+app.use('/api/v1', apiRouter);
 
 
 var schema = require("../appolo/schema");
@@ -31,6 +33,7 @@ graphQlServer.applyMiddleware({
   path: "/graphql"
 });
 app.use(bodyParser.json());
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', apiRouter); //app.use(cors());
 
 module.exports.start = function () {

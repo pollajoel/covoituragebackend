@@ -34,7 +34,7 @@ graphQlServer.applyMiddleware({ app, path: "/graphql" });
 app.use(cors());
 app.use('/uploads', express.static('./uploads'));
 app.use(bodyParser.json());
-app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument))
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', apiRouter);
 
 
