@@ -2,7 +2,7 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt');
 const config = require('../configs');
-const UservalidationSchema = require('../middleware/validators/user.validation')
+//const UservalidationSchema = require('../middleware/validators/user.validation')
 
 
 
@@ -25,11 +25,11 @@ exports.register = (req,res)=>{
 
 
 
-    const validation = UservalidationSchema.validate(user)
-    if( validation.error)
-    {
-        return res.status(400).send({error:validation.error})
-    }
+    //const validation = UservalidationSchema.validate(user)
+    //if( validation.error)
+    //{
+      //  return res.status(400).send({error:validation.error})
+    //}
 
 
     user.save().then(data=>{
