@@ -28,7 +28,7 @@ exports.register = (req,res)=>{
     const validation = UservalidationSchema.validate(user)
     if( validation.error)
     {
-        return res.status(200).send({error:validation.error})
+        return res.status(400).send({error:validation.error})
     }
 
 
