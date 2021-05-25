@@ -3,7 +3,7 @@ const router = express.Router();
 const userRouter = require("./users.routes");
 const orderRouter = require("./order.routes");
 const productsRouter = require("./trip.routes");
-const categories = require("./categories.routes");
+const categories = require("./car.routes");
 const upload = require("./uploadImages.routes");
 
 router.use(categories)

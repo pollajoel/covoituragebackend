@@ -18,7 +18,6 @@ exports.register = (req,res)=>{
         phoneNumber:req.body.phoneNumber,
         civility:req.body.civility,
         isAdmin:req.body.isAdmin,
-        //isAdmin: req.isAdmin,
     })
 
 

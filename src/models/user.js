@@ -65,7 +65,7 @@ const UserSchema = Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"products"
     }],
-    compagny:[{
+    commandes:[{
 	    type:mongoose.Schema.Types.ObjectId,
         ref:"compagny"
     }]
