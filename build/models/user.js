@@ -11,6 +11,7 @@ const UserSchema = Schema({
 	},
     age:{
 	    type:Number,
+        required:true
     },
     userName:{
         type:String,
@@ -26,7 +27,7 @@ const UserSchema = Schema({
     },
     lastName:{
         type:String,
-        //required:true,
+        required:true,
     },
     passWord:{
         type:String,
