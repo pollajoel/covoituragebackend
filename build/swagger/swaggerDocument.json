@@ -34,7 +34,7 @@
                 "parameters": [{
                     "name": "user",
                     "in": "body",
-                    "$ref": "#/definitions/User"
+                    "description": "User that we want to create"
                 }]
             } ,
 
