@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const product = require("../controllers/trip.controller")
+const trip = require("../controllers/trip.controller")
 const serverStorage = require("../middleware/serverStorage.middleware")
 
-router.post("/addProduct",product.Add)
-router.get("/productList",product.productList)
-router.post("/productdeleted",product.deletedProduct)
-router.put("/productupdate/:id",product.update)
-router.get("/product/findall",product.findAll);
+router.post("/trips",trip.Add)
+router.get("/trips",trip.productList)
+router.delete("/trips",trip.deletedProduct)
+router.put("/trips/:id",trip.update)
+//router.get("/product/findall",trip.findAll);
 
 router.post('/uploads',serverStorage.server.single('file'),function(req, res, next) {
   console.log(req.file);
