@@ -8,8 +8,6 @@ const config = require('../configs');
 
 exports.register = (req,res)=>{
 
-
-    //res.send({"teste":"mailito"});
     const hashedPassword = bcrypt.hashSync(req.body.passWord, 10);
     const user = new User({
         name:req.body.name,
@@ -20,6 +18,7 @@ exports.register = (req,res)=>{
         phoneNumber:req.body.phoneNumber,
         civility:req.body.civility,
         isAdmin:req.body.isAdmin,
+        description:req.body.description
     })
 
 

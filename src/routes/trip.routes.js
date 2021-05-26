@@ -3,8 +3,14 @@ const router = express.Router();
 const trip = require("../controllers/trip.controller")
 const serverStorage = require("../middleware/serverStorage.middleware")
 
-router.post("/trips",trip.Add)
-router.get("/trips",trip.productList)
+
+//Add new trip and list all the trips Get and Post
+router.post("/trips",trip.add)
+router.get("/trips",trip.all)
+//End list
+
+
+
 router.delete("/trips",trip.deletedProduct)
 router.put("/trips/:id",trip.update)
 //router.get("/product/findall",trip.findAll);

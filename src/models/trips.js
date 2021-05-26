@@ -2,47 +2,24 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 
-const productsSchema= Schema({
-    name:{
-        type:String,
-        required:true,
-        unique:true
-    },
-    price:{
-        type:Number,
-        required:true
-    },
-    productType:[
-        {
-            type:String,
-        }
-    ],
-    maxTarget:{
-        type:Number
-    },
-    image:{
-        type:String
-    },
-    description:{
-        type:String
-    },
-    companyProduct:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"compagny"
-    },
-    categorie:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"categories"
-    },
-    description:{
-        type:String
-    },
-    imgurl:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"images"
+const tripSchema= Schema({
+
+    departure:{type:String, required:true},
+    destination:{type:String, required:true},
+    price:{type:Number, required:true},
+    distance:{type:Number},
+    owner:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
+    reviews:{type:mongoose.Schema.Types.ObjectId,ref:"Reviews"},
+    preferences:{
+        animalsAllow:{type:Boolean,default:true},
+        musicAllow:{ type:Boolean,default:true},
+        smokeAllow:{type:Boolean, default:true},
+        automaticAccept:{type:Boolean,default:true},
+        behindmaxplace:{type:Number,default:2}
     }
 
-})
+
+},{ timestamps: true });
 
 
-module.exports = mongoose.model('Products',productsSchema)
+module.exports = mongoose.model('Trips',tripSchema)

@@ -1,4 +1,4 @@
-const Product = require("../models/trips");
+const Trip = require("../models/trips");
 const jwt   = require("jsonwebtoken");
 const configs =  require("../configs")
 const productSchemaValidation =require("../middleware/validators/product.validation")
@@ -8,8 +8,15 @@ exports.Add = (req,res)=>{
 
      //console.log(req.file);
     //res.status(200).send({ file:req.file})
-     const product = new Product({
-         name:req.body.name,
+
+    const trips ={departure, price, distance, owner, reviews, preferences:{animalsAllow, musicAllow, smokeAllow, automaticAccept, behindmaxplace}} = req.body;
+    req.send({
+        tripdata:trips,
+        value:"return value"
+    });
+
+     const trip = new Trip({
+         departure:req.body.name,
          price:req.body.price,
          description:req.body.description,
          categorie:req.body.categorie,

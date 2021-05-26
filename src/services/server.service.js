@@ -2,16 +2,16 @@ const config = require("../configs")
 const PORT = process.env.PORT
 const express = require("express")
 const app = express();
-const cors = require('cors');
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require('body-parser')
-const apiRouter = require("../routes")
+const apiRouter = require("../routes");
+const cors = require('cors');
+const path = require('path');
 const  swaggerDocument = require("../swagger/swaggerDocument.json");
 
 
 //import apiRouter from "../routes"
 
-const path = require('path');
 
 const schema = require("../appolo/schema");
 const resolvers = require("../appolo/resolvers");
