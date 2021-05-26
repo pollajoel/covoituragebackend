@@ -3,37 +3,25 @@ const jwt   = require("jsonwebtoken");
 const configs =  require("../configs")
 const productSchemaValidation =require("../middleware/validators/product.validation")
 
-
-exports.Add = (req,res)=>{
-
-     //console.log(req.file);
-    //res.status(200).send({ file:req.file})
-
-    const trips ={departure, price, distance, owner, reviews, preferences:{animalsAllow, musicAllow, smokeAllow, automaticAccept, behindmaxplace}} = req.body;
-    req.send({
-        tripdata:trips,
-        value:"return value"
-    });
-
+// trip controller add new trip by post
+exports.add = (req,res)=>{
      const trip = new Trip({
-         departure:req.body.name,
+         departure:req.body.departure,
+         destination:req.body.destination,
+         distance:req.body.distance,
          price:req.body.price,
-         description:req.body.description,
-         categorie:req.body.categorie,
-         image:req.body.image,
-         imgurl:req.body.imgurl
-        //products:req.body.products,
-        //isAdmin: req.isAdmin,
-    })
-
-      const validator = productSchemaValidation.validate(product)
+         reviews:req.body.reviews,
+         distance:req.body.distance,
+         preferences:req.body.preferences,
+         owner:req.body.owner
+    });
+      const validator = productSchemaValidation.validate(trip)
     if(!validator)
     {
        return res.status(500).send({error:validator.error,message:"format incorrecte"})
     }
 
-
-    product.save().then(data=>{
+    trip.save().then(data=>{
         res.status(200).send({
             created:true,
             message:"Create success",
@@ -47,13 +35,13 @@ exports.Add = (req,res)=>{
             }
         )
     })
-
-
-
 }
 
-exports.productList = (req,res)=>{
-    Product.find({}).populate('categorie').populate('imgurl').then(data=>{
+
+
+// trip controller list all
+exports.all = (req,res)=>{
+    Trip.find({}).populate('User').populate('Reviews').then(data=>{
         res.status(200).send({data:data})
     }).catch(err=>{
         res.status(403).send({
@@ -61,6 +49,10 @@ exports.productList = (req,res)=>{
         })
     })
 }
+
+
+
+
 
 
 exports.deletedProduct = (req,res)=>{

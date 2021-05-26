@@ -54,18 +54,18 @@
         },
         "/trips": {
             "post": {
-                "tags": ["Trip"],
+                "tags": ["trips"],
                 "description": "Create new trip in the system",
                 "summary": "Add new trip in system",
                 "parameters": [{
                     "name": "trip",
                     "in": "body",
-                    "description": "User that we want to create"
+                    "description": "trap that we want to create"
                 }]
             },
             "get": {
                 "tags": ["trips"],
-                "summary": "Get all Tri in system",
+                "summary": "Get all Trips in system",
                 "responses": {
                     "200": {"description": "OK"}
                 }
