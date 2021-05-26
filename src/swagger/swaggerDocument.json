@@ -52,13 +52,19 @@
             }
 
         },
-        "/Trip": {
+        "/trips": {
             "post": {
                 "tags": ["Trip"],
-                "description": "Create new trip in the system"
+                "description": "Create new trip in the system",
+                "summary": "Add new trip in system",
+                "parameters": [{
+                    "name": "user",
+                    "in": "body",
+                    "description": "User that we want to create"
+                }]
             },
             "get": {
-                "tags": ["Trip"],
+                "tags": ["trips"],
                 "summary": "Get all Tri in system",
                 "responses": {
                     "200": {"description": "OK"}
@@ -66,9 +72,9 @@
             }
         },
 
-        "Car": {
+        "/cars": {
             "post": {
-                "tags": ["Car"],
+                "tags": ["cars"],
                 "description": "Create new user Car"
             },
             "get": {
