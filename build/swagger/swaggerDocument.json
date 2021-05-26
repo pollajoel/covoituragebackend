@@ -61,7 +61,10 @@
                     "name": "trip",
                     "in": "body",
                     "description": "trap that we want to create"
-                }]
+                }],
+                "responses": {
+                    "200": {"description":"OK"}
+                }
             },
             "get": {
                 "tags": ["trips"],
