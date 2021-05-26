@@ -54,7 +54,7 @@
         },
         "/trips": {
             "post": {
-                "tags": ["Trip"],
+                "tags": ["Trips"],
                 "description": "Create new trip in the system",
                 "summary": "Add new trip in system",
                 "parameters": [{
