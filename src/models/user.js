@@ -26,7 +26,6 @@ const UserSchema = Schema({
     },
     lastName:{
         type:String,
-        //required:true,
     },
     passWord:{
         type:String,
@@ -65,10 +64,11 @@ const UserSchema = Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"products"
     }],
-    commandes:[{
+
+    profilImage:{
 	    type:mongoose.Schema.Types.ObjectId,
-        ref:"compagny"
-    }]
+        ref:"images"
+    }
 
 },{ timestamps: true })
 

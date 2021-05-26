@@ -2,12 +2,14 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt');
 const config = require('../configs');
-const UservalidationSchema = require('../middleware/validators/user.validation')
+//const UservalidationSchema = require('../middleware/validators/user.validation')
 
 
 
 exports.register = (req,res)=>{
 
+
+    //res.send({"teste":"mailito"});
     const hashedPassword = bcrypt.hashSync(req.body.passWord, 10);
     const user = new User({
         name:req.body.name,
@@ -21,12 +23,14 @@ exports.register = (req,res)=>{
     })
 
 
-    const validation = UservalidationSchema.validate(user)
-    if( validation.error)
-    {
-        return res.status(400).send(validation.error)
-    }
 
+
+
+    //const validation = UservalidationSchema.validate(user)
+    //if( validation.error)
+    //{
+      //  return res.status(400).send({error:validation.error})
+    //}
 
 
     user.save().then(data=>{
@@ -43,7 +47,8 @@ exports.register = (req,res)=>{
 
     }).catch(err =>{
         res.status(500).send({
-            message:err.message || "some error occurred"
+            message:err.message || "some error occurred",
+            "error":"error"
         })
     })
 }

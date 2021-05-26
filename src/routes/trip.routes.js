@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const product = require("../controllers/product.controller")
+const product = require("../controllers/trip.controller")
 const serverStorage = require("../middleware/serverStorage.middleware")
 
 router.post("/addProduct",product.Add)
