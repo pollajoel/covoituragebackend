@@ -58,7 +58,7 @@
                 "description": "Create new trip in the system",
                 "summary": "Add new trip in system",
                 "parameters": [{
-                    "name": "user",
+                    "name": "trip",
                     "in": "body",
                     "description": "User that we want to create"
                 }]
