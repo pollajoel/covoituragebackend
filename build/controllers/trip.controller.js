@@ -40,7 +40,7 @@ exports.add = (req,res)=>{
 
 // trip controller list all
 exports.all = (req,res)=>{
-    Trip.find({}).populate('owner').then(data=>{
+    Trip.find({}).populate('owner').populate("passengers").then(data=>{
         res.status(200).send({data:data})
     }).catch(err=>{
         res.status(403).send({
