@@ -10,9 +10,7 @@ exports.add = (req,res)=>{
          destination:req.body.destination,
          distance:req.body.distance,
          price:req.body.price,
-         reviews:req.body.reviews,
          distance:req.body.distance,
-         preferences:req.body.preferences,
          owner:req.body.owner
     });
       const validator = productSchemaValidation.validate(trip)

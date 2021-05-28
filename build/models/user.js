@@ -4,8 +4,8 @@ const Schema = mongoose.Schema
 
 
 const UserSchema = Schema({
-	
-	
+
+    
 	isAdmin:{type:Boolean,},
     age:{type:Number,},
     userName:{type:String,},
@@ -19,8 +19,15 @@ const UserSchema = Schema({
     phoneNumber:{type:String},
     civility:{type:String},
     trips:[{type:mongoose.Schema.Types.ObjectId, ref:"Trips"}],
-    image:{type:mongoose.Schema.Types.ObjectId, ref:"images"}
-
+    image:{type:mongoose.Schema.Types.ObjectId, ref:"images"},
+    preferences:{
+        animalsAllow:{type:Boolean,default:true},
+        musicAllow:{ type:Boolean,default:true},
+        smokeAllow:{type:Boolean, default:true},
+        automaticAccept:{type:Boolean,default:true},
+        behindmaxplace:{type:Number,default:2}
+    },
+    reviews:{type:mongoose.Schema.Types.ObjectId,ref:"Reviews"}
 },{ timestamps: true })
 
 module.exports = mongoose.model('User',UserSchema)
