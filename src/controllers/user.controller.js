@@ -110,7 +110,7 @@ exports.login = (req, res) => {
   
 
 exports.users = (req, res)=>{
-    User.find({}).populate("Trips").populate("Reviews").then(data=>{
+    User.find({}).populate("trips").populate("reviews").populate("image").then(data=>{
         return res.status(200).send({data:data})
     }).catch(error=>{
         return res.send({error:error.message})
