@@ -10,7 +10,7 @@ exports.add = (req,res)=>{
          destination:req.body.destination,
          distance:req.body.distance,
          price:req.body.price,
-         owner:req.body.owner,
+         owner:req.body.owner
     });
       const validator = productSchemaValidation.validate(trip)
     if(!validator)
@@ -46,6 +46,26 @@ exports.all = (req,res)=>{
         })
     })
 }
+
+// get Trip by id
+exports.Tripid = (req, res)=>{
+
+    Trip.findById(req.params.id)
+   .then((trip) => {
+     if (!trip) {
+       return res.status(404).send({
+         message: `Trip not found with id ${req.params.id}`,
+       });
+     }
+     res.send(trip);
+   })
+   .catch((err) => {
+     return res.status(404).send({
+       message: err.message,
+     });
+   });
+}
+
 
 
 

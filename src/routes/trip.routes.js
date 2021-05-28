@@ -6,7 +6,8 @@ const serverStorage = require("../middleware/serverStorage.middleware")
 
 //Add new trip and list all the trips Get and Post
 router.post("/trips",trip.add)
-router.get("/trips",trip.all)
+router.get("/trips",trip.all);
+router.get("/trips/:id",trip.Tripid);
 //End list
 
 

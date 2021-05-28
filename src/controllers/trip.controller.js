@@ -47,6 +47,26 @@ exports.all = (req,res)=>{
     })
 }
 
+// get Trip by id
+exports.Tripid = (req, res)=>{
+
+    Trip.findById(req.params.id)
+   .then((trip) => {
+     if (!trip) {
+       return res.status(404).send({
+         message: `Trip not found with id ${req.params.id}`,
+       });
+     }
+     res.send(trip);
+   })
+   .catch((err) => {
+     return res.status(404).send({
+       message: err.message,
+     });
+   });
+}
+
+
 
 
 

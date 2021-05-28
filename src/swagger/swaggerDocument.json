@@ -74,6 +74,29 @@
                 }
             }
         },
+        "/trips/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "description": "ID of trip that we want to find",
+                "type": "string"
+              }
+            ],
+            "get": {
+              "tags": [
+                "trips"
+              ],
+              "summary": "Get trip with given ID",
+              "responses": {
+                "200": {
+                  "description": "trips is found"
+                }
+              }
+            }
+            },
+
 
         "/cars": {
             "post": {
