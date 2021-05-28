@@ -8,7 +8,8 @@ const tripSchema= Schema({
     destination:{type:String, required:true},
     price:{type:Number, required:true},
     distance:{type:Number},
-    owner:{type:mongoose.Schema.Types.ObjectId,ref:"User"}
+    owner:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
+    passengers:[{type:mongoose.Schema.Types.ObjectId,ref:"Trips"}]
 
 },{ timestamps: true });
 

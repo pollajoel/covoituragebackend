@@ -50,7 +50,7 @@ exports.all = (req,res)=>{
 // get Trip by id
 exports.Tripid = (req, res)=>{
 
-    Trip.findById(req.params.id)
+    Trip.findById(req.params.id).populate("passengers").populate("owner")
    .then((trip) => {
      if (!trip) {
        return res.status(404).send({
