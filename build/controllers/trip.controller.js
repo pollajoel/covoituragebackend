@@ -1,7 +1,8 @@
 const Trip = require("../models/trips");
 const jwt   = require("jsonwebtoken");
 const configs =  require("../configs")
-const productSchemaValidation =require("../middleware/validators/product.validation")
+const productSchemaValidation =require("../middleware/validators/product.validation");
+const { removeDescriptions } = require("@graphql-tools/optimize");
 
 // trip controller add new trip by post
 exports.add = (req,res)=>{
@@ -10,7 +11,8 @@ exports.add = (req,res)=>{
          destination:req.body.destination,
          distance:req.body.distance,
          price:req.body.price,
-         owner:req.body.owner
+         owner:req.body.owner,
+         passengers:req.body.passengers,
     });
       const validator = productSchemaValidation.validate(trip)
     if(!validator)
