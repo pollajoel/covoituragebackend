@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "covoituragebackend.herokuapp.com",
+    "host": "localhost:3032",
     "basePath": "/api/v1",
     "tags": [
         {

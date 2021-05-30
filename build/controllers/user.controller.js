@@ -22,6 +22,7 @@ exports.register = (req,res)=>{
         trips:req.body.trips,
         preferences:req.body.preferences,
         reviews: req.body.reviews,
+        car:req.body.car,
     })
 
 
@@ -112,7 +113,7 @@ exports.login = (req, res) => {
   
 
 exports.users = (req, res)=>{
-    User.find({}).populate("trips").populate("reviews").populate("image").then(data=>{
+    User.find({}).populate("car").populate("trips").populate("reviews").populate("image").then(data=>{
         return res.status(200).send({data:data})
     }).catch(error=>{
         return res.send({error:error.message})
