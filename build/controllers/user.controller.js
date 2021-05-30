@@ -20,6 +20,7 @@ exports.register = (req,res)=>{
         isAdmin:req.body.isAdmin,
         description:req.body.description,
         trips:req.body.trips,
+        preferences:req.body.preferences,
     })
 
 

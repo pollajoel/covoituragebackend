@@ -11,7 +11,9 @@ exports.add = (req,res)=>{
          distance:req.body.distance,
          price:req.body.price,
          owner:req.body.owner,
-         passengers:req.body.passengers
+         passengers:req.body.passengers,
+         datedepart:req.body.datedepart,
+         datearrived:req.body.datearrived,
     });
       const validator = productSchemaValidation.validate(trip)
     if(!validator)

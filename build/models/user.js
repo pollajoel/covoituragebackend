@@ -4,8 +4,8 @@ const Schema = mongoose.Schema
 
 
 const UserSchema = Schema({
-
-    
+	
+	
 	isAdmin:{type:Boolean,},
     age:{type:Number,},
     userName:{type:String,},
@@ -21,11 +21,33 @@ const UserSchema = Schema({
     trips:[{type:mongoose.Schema.Types.ObjectId, ref:"Trips"}],
     image:{type:mongoose.Schema.Types.ObjectId, ref:"images"},
     preferences:{
-        animalsAllow:{type:Boolean,default:true},
-        musicAllow:{ type:Boolean,default:true},
-        smokeAllow:{type:Boolean, default:true},
+        
         automaticAccept:{type:Boolean,default:true},
-        behindmaxplace:{type:Number,default:2}
+        behindmaxplace:{type:Number,default:2},
+        
+        animalsAllow:{
+            Iloveanimals:{type:Boolean},
+            havepreferences:{ type:Boolean},
+            notAllow:{ type: Boolean}   
+        },
+        smokeAllow:{
+            smokenotallow:{type: Boolean},
+            smokebrealallow:{type: Boolean},
+            smookeallow:{type: Boolean}
+        },
+        discussion:{
+            speakalot:{type: Boolean},
+            speaksmall:{type: Boolean},
+            notspek:{type: Boolean}
+        },
+
+        musicAllow:{ 
+                musiclisten:{type: Boolean,},
+                thatdepends:{type: Boolean},
+                slience:{type: Boolean}
+        },
+
+
     },
     reviews:{type:mongoose.Schema.Types.ObjectId,ref:"Reviews"}
 },{ timestamps: true })
