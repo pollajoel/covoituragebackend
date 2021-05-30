@@ -21,6 +21,7 @@ exports.register = (req,res)=>{
         description:req.body.description,
         trips:req.body.trips,
         preferences:req.body.preferences,
+        reviews: req.body.reviews,
     })
 
 
