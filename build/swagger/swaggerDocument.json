@@ -52,6 +52,32 @@
             }
 
         },
+        "/users/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "description": "ID of user that we want to find",
+                "type": "string"
+              }
+            ],
+            "get": {
+              "tags": [
+                "Users"
+              ],
+              "summary": "Get user with given ID",
+              "responses": {
+                "200": {
+                  "description": "user is found"
+                }
+              }
+            }
+            },
+
+
+
+
         "/trips": {
             "post": {
                 "tags": ["trips"],
@@ -112,22 +138,34 @@
                     }
                 }
             }
-
         },
-        "/uploads": {
+        "/upload": {
             "post":{
-                "tags":["uploads"],
+                "tags":["upload"],
                 "description": "Add new image in system",
                 "summary": "Add new image in system",
                 "parameters": [{
-                    "name": "images",
-                    "in": "body",
+                    "name": "file",
+                    "in": "formData",
+                    "type": "file",
                     "description": "image that we want to create"
                 }],
                 "responses": {
                     "200": {"description":"OK"}
                 }
-            } }
+            } ,
+            "get": {
+                "tags": ["upload"],
+                "summary": "Get all image",
+                "responses": {
+                  "200": {
+                    "description": "images is found"
+                  }
+                }
+              }
+        
+        }
+
 
 
 
