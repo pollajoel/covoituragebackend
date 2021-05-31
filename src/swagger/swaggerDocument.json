@@ -18,7 +18,7 @@
         }
     ],
     "schemes": [
-        "https"
+        "http"
     ],
     "consumes": [
         "application/json"
@@ -112,7 +112,34 @@
                     }
                 }
             }
+        },
+        "/upload": {
+            "post":{
+                "tags":["upload"],
+                "description": "Add new image in system",
+                "summary": "Add new image in system",
+                "parameters": [{
+                    "name": "file",
+                    "in": "formData",
+                    "type": "file",
+                    "description": "image that we want to create"
+                }],
+                "responses": {
+                    "200": {"description":"OK"}
+                }
+            } ,
+            "get": {
+                "tags": ["upload"],
+                "summary": "Get all image",
+                "responses": {
+                  "200": {
+                    "description": "images is found"
+                  }
+                }
+              }
+        
         }
+
 
 
 

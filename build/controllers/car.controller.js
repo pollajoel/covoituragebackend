@@ -1,4 +1,4 @@
-const categories = require("../models/car")
+const Car = require("../models/car")
 const categorieSchema = require('../middleware/validators/categorie.validation')
 
 
@@ -6,17 +6,23 @@ exports.AddCategories = (req, res)=>{
 
     //return res.send({message:"teste"})
 
-    const cat = new categories({
-        title:req.body.title,
-        products:req.body.products,
+    const car = new Car({
+        mark: req.body.mark,
+        owner: req.body.owner,
+        picture: req.body.picture,
+        color: req.body.color,
     })
 
+    /*
     const validation = categorieSchema.validate(cat)
     if( validation.err )
     {
          return res.status(400).send(validation.error)
     }
-    cat.save().then(data=>{
+    */
+
+
+    car.save().then(data=>{
         res.status(200).send({data:data})
         }).catch(err=>{
             res.status(403).send({error:err.message})
@@ -24,8 +30,8 @@ exports.AddCategories = (req, res)=>{
 
 }
 
-exports.listCategories = (req,res)=>{
-    categories.find({}).populate('products').then(data=>{
+exports.all = (req,res)=>{
+    Car.find({}).populate('owner').populate("picture").then(data=>{
         res.status(200).send({data:data})
     }).catch(err=>{
         res.status(403).send({
@@ -39,7 +45,7 @@ exports.Delete = (req,res)=>{
 
     const categore_id = req.body.id;
 
-    categories.findByIdAndRemove(req.body).then(data=>{
+    Car.findByIdAndRemove(req.body).then(data=>{
         return res.status( 200 ).send(
             { response:data,status:'categorie supprimée'})
     }).catch(error=>{

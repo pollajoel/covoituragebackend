@@ -112,7 +112,22 @@
                     }
                 }
             }
-        }
+
+        },
+        "/uploads": {
+            "post":{
+                "tags":["uploads"],
+                "description": "Add new image in system",
+                "summary": "Add new image in system",
+                "parameters": [{
+                    "name": "images",
+                    "in": "body",
+                    "description": "image that we want to create"
+                }],
+                "responses": {
+                    "200": {"description":"OK"}
+                }
+            } }
 
 
 

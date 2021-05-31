@@ -18,10 +18,23 @@ exports.upload= (req, res, next) =>{
 
 
   Image.save().then( data=>{
-      return res.send({data:data,url:filePath,status:true})
+      return res.send({data:data})
   }).catch(err=>{
       return res.send({error:err.message,status:false})
   })
 
+
+}
+
+
+
+exports.all = (req, res)=>{
+
+    image.find({}).then(img=>{
+
+        res.send({data:img});
+    }).catch(err=>{
+        res.send({error:err.message})
+    })
 
 }

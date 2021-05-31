@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 
 const CarSchema = Schema({
-    name:{type: String,required: true,},
-    mark:{type: string, required: true},
+    mark:{type: String, required: true},
     owner:{type:mongoose.Schema.Types.ObjectId, ref:"User"},
-    picture:{type: mongoose.Schema.Types.ObjectId, ref:"images"}
+    picture:{type: mongoose.Schema.Types.ObjectId, ref:"images"},
+    color: {type: String},
     
 })
 
