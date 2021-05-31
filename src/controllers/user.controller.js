@@ -136,7 +136,7 @@ exports.logout = (req, res) => {
 
 exports.user = (req, res)=>{
 
-     User.findById(req.params.id)
+     User.findById(req.params.id).populate("trips").populate("reviews").populate("image")
     .then((user) => {
       if (!user) {
         return res.status(404).send({

@@ -53,12 +53,8 @@ exports.all = (req,res)=>{
 // get Trip by id
 exports.Tripid = (req, res)=>{
 
-    Trip.findById(req.params.id).populate(
-        [{path:'passengers',model:'User',populate:{path:'car',model:'Car'}}]
-    ).populate( [{path:'passengers',model:'User',populate:{path:'image',model:'images'}}])
-    .populate( [{path:'owner',model:'User',populate:{path:'image',model:'images'}}])
-    .populate( [{path:'owner',model:'User',populate:{path:'car',model:'Car'}}])
-    .then((trip) => {
+    Trip.findById(req.params.id).populate("passengers").populate("owner")
+   .then((trip) => {
      if (!trip) {
        return res.status(404).send({
          message: `Trip not found with id ${req.params.id}`,

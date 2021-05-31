@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "localhost:3032",
+    "host": "covoituragebackend.herokuapp.com",
     "basePath": "/api/v1",
     "tags": [
         {
@@ -18,7 +18,7 @@
         }
     ],
     "schemes": [
-        "http"
+        "https"
     ],
     "consumes": [
         "application/json"
@@ -52,32 +52,6 @@
             }
 
         },
-        "/users/{id}": {
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "description": "ID of user that we want to find",
-                "type": "string"
-              }
-            ],
-            "get": {
-              "tags": [
-                "Users"
-              ],
-              "summary": "Get user with given ID",
-              "responses": {
-                "200": {
-                  "description": "user is found"
-                }
-              }
-            }
-            },
-
-
-
-
         "/trips": {
             "post": {
                 "tags": ["trips"],
@@ -138,34 +112,22 @@
                     }
                 }
             }
+
         },
-        "/upload": {
+        "/uploads": {
             "post":{
-                "tags":["upload"],
+                "tags":["uploads"],
                 "description": "Add new image in system",
                 "summary": "Add new image in system",
                 "parameters": [{
-                    "name": "file",
-                    "in": "formData",
-                    "type": "file",
+                    "name": "images",
+                    "in": "body",
                     "description": "image that we want to create"
                 }],
                 "responses": {
                     "200": {"description":"OK"}
                 }
-            } ,
-            "get": {
-                "tags": ["upload"],
-                "summary": "Get all image",
-                "responses": {
-                  "200": {
-                    "description": "images is found"
-                  }
-                }
-              }
-        
-        }
-
+            } }
 
 
 
