@@ -8,7 +8,7 @@ exports.upload= (req, res, next) =>{
 
 
     const Image = new image({
-        url:filePath
+        url:req.file.path
     })
 
   if(!req.file) {

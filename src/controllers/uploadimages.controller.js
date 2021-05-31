@@ -1,11 +1,11 @@
 const image = require("../models/Images")
 exports.upload= (req, res, next) =>{
     const host = req.host;
-     const filePath = req.protocol + "://" + host + '/' + req.file.path;
+     const filePath = req.protocol + "://" + host + '//' + req.file.path;
 
 
     const Image = new image({
-        url:filePath
+        url:req.file.paths
     })
 
   if(!req.file) {
