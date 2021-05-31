@@ -1,5 +1,8 @@
 const image = require("../models/Images")
 exports.upload= (req, res, next) =>{
+
+   res.send({name:"polla joel"});
+
     const host = req.host;
      const filePath = req.protocol + "://" + host + '/' + req.file.path;
 
