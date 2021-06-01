@@ -41,7 +41,11 @@ exports.add = (req,res)=>{
 
 // trip controller list all
 exports.all = (req,res)=>{
-    Trip.find({}).populate('owner').populate("passengers").then(data=>{
+    Trip.find({}).populate(
+        [{path:'passengers',model:'User',populate:{path:'car',model:'Car'}}]
+    ).populate( [{path:'passengers',model:'User',populate:{path:'image',model:'images'}}])
+    .populate( [{path:'owner',model:'User',populate:{path:'image',model:'images'}}])
+    .populate( [{path:'owner',model:'User',populate:{path:'car',model:'Car'}}]).then(data=>{
         res.status(200).send({data:data})
     }).catch(err=>{
         res.status(403).send({
