@@ -136,14 +136,14 @@ exports.logout = (req, res) => {
 
 exports.user = (req, res)=>{
 
-     User.findById(req.params.id).populate("trips").populate("reviews").populate("image")
+     User.findById(req.params.id).populate("car").populate("trips").populate("reviews").populate("image")
     .then((user) => {
       if (!user) {
         return res.status(404).send({
           message: `user not found with id ${req.params.id}`,
         });
       }
-      res.send(user);
+      res.send({data:user});
     })
     .catch((err) => {
       return res.status(404).send({

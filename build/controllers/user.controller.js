@@ -23,7 +23,6 @@ exports.register = (req,res)=>{
         preferences:req.body.preferences,
         reviews: req.body.reviews,
         car:req.body.car,
-        image:req.body.image,
     })
 
 
@@ -114,7 +113,7 @@ exports.login = (req, res) => {
   
 
 exports.users = (req, res)=>{
-    User.find({}).populate("trips").populate("reviews").populate("image").populate("car").then(data=>{
+    User.find({}).populate("car").populate("trips").populate("reviews").populate("image").then(data=>{
         return res.status(200).send({data:data})
     }).catch(error=>{
         return res.send({error:error.message})
@@ -136,14 +135,14 @@ exports.logout = (req, res) => {
 
 exports.user = (req, res)=>{
 
-     User.findById(req.params.id).populate("trips").populate("reviews").populate("image")
+     User.findById(req.params.id).
     .then((user) => {
       if (!user) {
         return res.status(404).send({
           message: `user not found with id ${req.params.id}`,
         });
       }
-      res.send(user);
+       res.send({data:user});
     })
     .catch((err) => {
       return res.status(404).send({

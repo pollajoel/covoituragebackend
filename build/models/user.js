@@ -20,6 +20,8 @@ const UserSchema = Schema({
     civility:{type:String},
     trips:[{type:mongoose.Schema.Types.ObjectId, ref:"Trips"}],
     image:{type:mongoose.Schema.Types.ObjectId, ref:"images"},
+    isemailvery:{ type:Boolean, default:false},
+    isCniVerify:{ type:Boolean, default:false},
     car:{type: mongoose.Schema.Types.ObjectId, ref:"Car"},
     preferences:{
         
